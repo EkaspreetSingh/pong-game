@@ -1,0 +1,79 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --hue: 230;
+    --saturation: 50%;
+    
+    --foreground-color:hsl(var(--hue), var(--saturation),80%);
+    --background-color:hsl(var(--hue), var(--saturation),20%);
+    /* --text-color: hsl(0, 0%, 80%); */
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--background-color);
+}
+
+.paddle {
+    --position: 50;
+
+    top: calc(var(--position)*1vh);
+    transform: translateY(-50%);
+    position: absolute;
+    background-color: var(--foreground-color);
+    box-shadow: 0 0 1vh var(--foreground-color);
+    width: 2vh;
+    height: 15vh;
+}
+
+.paddle.left {
+    left: 2vw;
+}
+.paddle.right {
+    right: 2vw;
+}
+
+.ball {
+    --x: 50;
+    --y: 50;
+
+    left: calc(var(--x)*1vw);
+    top: calc(var(--y)*1vh);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: var(--foreground-color);
+    box-shadow: 0 0 1vh var(--foreground-color);
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+}
+
+.score {
+    color: var(--foreground-color);
+    display: flex;
+    /* justify-content: center; */
+    font-size: 7vh;
+    font-family: monospace;
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+.score > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 2vh;
+    margin: 1vh 0;
+}
+
+.score > :first-child {
+    text-align: right;
+    border-right: .5vh solid var(--foreground-color);
+}
+
+
+
+
+
